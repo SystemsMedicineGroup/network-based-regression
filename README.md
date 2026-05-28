@@ -46,7 +46,7 @@ result <- rwr_lasso_train(
   lambda = 0.01,
   eta = 0.01,
   max_outer = 200,
-  n_cores = 1 #set to the amount of cores on your device -1
+  n_cores = 1 #only set to 1 if you are on windows/you want to run the code in serial, otherwise, remove this.
 )
 
 #Results
@@ -91,7 +91,7 @@ Each equation corresponds to one function. The wrapper function **rwr_lasso_trai
 **Table 1 \| Summary function table**
 
 | Function | Purpose | Inputs | Outputs |
-|-----------------|-----------------|---------------------|-----------------|
+|-----------------|-----------------|--------------------|-----------------|
 | **setup_network** | Pre-computation | edges, X, n | Net bundle |
 | **eq1_activation** | Eq. 1 | w, net | A |
 | **eq2_transition** | Eq. 2 | A, net | Q |
@@ -597,7 +597,7 @@ The returned list provides:
 **Table 2 \| Hyperparameter description table.**
 
 | Hyperparameter | Default Value | Purpose |
-|-------------------|-------------------|------------------------------------|
+|-------------------|-------------------|-----------------------------------|
 | **alpha** | 0.5 | RWR restart probability. The higher the number, more of the original signal is retained. This matches the Zhang et. al (2018) default value. |
 | **lambda** | 0.01 | L1 penalty strength. Larger values produce sparser signitures. This value should be fine-tuned using the validation data. |
 | **eta** | 0.001 | Adam learning rate. Suggested starting value, can be fine tuned to a maximum value of 0.1 (Kingma and Ba, 2014). |
